@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Skills{% endblock %}
+{% block content %}
+    <div class="section">
+        <h1>Skills</h1>
+        <div class="skills">
+            {% for skill in skills %}
+            <div class="skill"> {{ skill.skill}} </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

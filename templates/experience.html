@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Experience{% endblock %}
+{% block content %}
+    <div class="section">
+        <h1>Experience</h1>
+        <ul class="timeline">
+            {% for job in experience %}
+            <li class="timeline-item">
+                <h2>{{ job.role }}</h2>
+                <p class="company">{{ job.company }}</p>
+                <p class="duration">{{ job.duration }}</p>
+                <ul>
+                    {% for responsibility in job.responsibilities %}
+                        <li>{{ responsibility }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

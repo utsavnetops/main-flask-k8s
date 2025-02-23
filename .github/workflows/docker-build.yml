@@ -1,0 +1,39 @@
+name: Build Docker Images
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+      - release/*
+      - v*
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Login to Docker Hub
+        run: |
+          echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+
+      - name: Build and Push Dev Image
+        if: github.ref == 'refs/heads/develop'
+        run: |
+          docker build -t utsavnetops/flask-k8s-ops:${{ github.sha }} -f Dockerfile .
+          docker push utsavnetops/flask-k8s-ops:${{ github.sha }}
+
+      - name: Build and Push Staging Image
+        if: startsWith(github.ref, 'refs/heads/release/')
+        run: |
+          docker build -t utsavnetops/flask-k8s-ops:staging -f Dockerfile .
+          docker push utsavnetops/flask-k8s-ops:staging
+
+      - name: Build and Push Prod Image
+        if: startsWith(github.ref, 'refs/heads/v')
+        run: |
+          docker build -t utsavnetops/flask-k8s-ops:latest -f Dockerfile .
+          docker push utsavnetops/flask-k8s-ops:latest

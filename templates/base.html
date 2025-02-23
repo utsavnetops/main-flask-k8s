@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="nav-container">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="{{ url_for('index') }}" class="btn">Home</a></li>
+                    <li><a href="{{ url_for('about') }}" class="btn">About</a></li>
+                    <li><a href="{{ url_for('experience') }}" class="btn">Experience</a></li>
+                    <li><a href="{{ url_for('skills') }}" class="btn">Skills</a></li>
+                    <li><a href="{{ url_for('projects') }}" class="btn">Projects</a></li>
+                    <li><a href="{{ url_for('infrastructure') }}" class="btn">Infrastructure</a></li>
+                    <li><a href="{{ url_for('contact') }}" class="btn">Contact</a></li>
+                    <li><a href="{{ url_for('submit') }}" class="btn">Submit</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main class="container">
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        <p>&copy; 2025 Utsav's Portfolio | Designed with ❤️</p>
+    </footer>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
