@@ -22,7 +22,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    max-width: 1200px;
+    width: 1080px; /* Set the width to 1080px */
+    max-width: 1200px; /* Set the max-width to 1200px */
     margin: 0 auto;
 }
 
