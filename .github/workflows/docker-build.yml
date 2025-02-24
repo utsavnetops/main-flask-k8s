@@ -29,7 +29,7 @@ jobs:
 
       - name: Extract branch name
         id: extract_branch
-        run: echo "branch=$(echo ${GITHUB_REF#refs/heads/} | tr '/' '-')" >> $GITHUB_ENV
+        run: echo "branch=$(echo ${branch_name:8})" >> $GITHUB_ENV
 
       - name: Build and Push Dev Image
         if: startsWith(github.ref, 'refs/heads/develop/')
