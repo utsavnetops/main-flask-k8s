@@ -27,14 +27,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Extract branch name
+      - name: Extract branch name (remove 'refs/heads/')
         id: extract_branch
-        run: echo "branch=$(echo ${branch_name:8})" >> $GITHUB_ENV
+        run: echo "branch=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
 
       - name: Build and Push Dev Image
         if: startsWith(github.ref, 'refs/heads/develop/')
         run: |
-          VERSION=$(echo $BRANCH_NAME)
+          VERSION=$(echo $branch | tr '/' '-')
           docker buildx build --platform linux/amd64,linux/arm64 \
             -t utsavnetops/flask-k8s-ops:$VERSION-dev-${{ github.sha }} \
             -t utsavnetops/flask-k8s-ops:latest-dev \
@@ -43,7 +43,7 @@ jobs:
       - name: Build and Push Staging Image
         if: startsWith(github.ref, 'refs/heads/release/')
         run: |
-          VERSION=$(echo $BRANCH_NAME)
+          VERSION=$(echo $branch | tr '/' '-')
           docker buildx build --platform linux/amd64,linux/arm64 \
             -t utsavnetops/flask-k8s-ops:$VERSION-staging-${{ github.sha }} \
             -t utsavnetops/flask-k8s-ops:latest-staging \
@@ -52,7 +52,7 @@ jobs:
       - name: Build and Push Prod Image
         if: startsWith(github.ref, 'refs/heads/v')
         run: |
-          VERSION=$(echo $BRANCH_NAME)
+          VERSION=$(echo $branch | tr '/' '-')
           docker buildx build --platform linux/amd64,linux/arm64 \
             -t utsavnetops/flask-k8s-ops:$VERSION-${{ github.sha }} \
             -t utsavnetops/flask-k8s-ops:latest \
