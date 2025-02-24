@@ -4,9 +4,28 @@
     <div class="section">
         <h1>Skills</h1>
         <div class="skills">
-            {% for skill in skills %}
-            <div class="skill"> {{ skill.skill}} </div>
+            {% for category_data in skills %}
+                <div class="category">
+                    <button class="category-button">{{ category_data.category }}</button>
+                    <div class="skill-list">
+                        {% for skill in category_data.skills %}
+                            <div class="skill">{{ skill }}</div>
+                        {% endfor %}
+                    </div>
+                </div>
             {% endfor %}
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const categoryButtons = document.querySelectorAll('.category-button');
+
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const skillList = this.nextElementSibling;
+                    skillList.classList.toggle('show');
+                });
+            });
+        });
+    </script>
 {% endblock %}
