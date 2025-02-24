@@ -3,7 +3,6 @@ name: Build Docker Images
 on:
   push:
     branches:
-      - main
       - develop/*
       - release/*
       - v*
@@ -30,12 +29,12 @@ jobs:
 
       - name: Extract branch name
         id: extract_branch
-        run: echo "branch=$(echo ${GITHUB_REF#refs/heads/})" >> $GITHUB_ENV
+        run: echo "BRANCH_NAME=$(echo ${GITHUB_REF#refs/heads/} | tr '/' '-')" >> $GITHUB_ENV
 
       - name: Build and Push Dev Image
         if: startsWith(github.ref, 'refs/heads/develop/')
         run: |
-          VERSION=$(echo $GITHUB_REF | sed 's/refs\/heads\///')
+          VERSION=$(echo $BRANCH_NAME)
           docker buildx build --platform linux/amd64,linux/arm64 \
             -t utsavnetops/flask-k8s-ops:$VERSION-dev-${{ github.sha }} \
             -t utsavnetops/flask-k8s-ops:latest-dev \
@@ -44,7 +43,7 @@ jobs:
       - name: Build and Push Staging Image
         if: startsWith(github.ref, 'refs/heads/release/')
         run: |
-          VERSION=$(echo $GITHUB_REF | sed 's/refs\/heads\/release\///')
+          VERSION=$(echo $BRANCH_NAME)
           docker buildx build --platform linux/amd64,linux/arm64 \
             -t utsavnetops/flask-k8s-ops:$VERSION-staging-${{ github.sha }} \
             -t utsavnetops/flask-k8s-ops:latest-staging \
@@ -53,7 +52,7 @@ jobs:
       - name: Build and Push Prod Image
         if: startsWith(github.ref, 'refs/heads/v')
         run: |
-          VERSION=$(echo $GITHUB_REF | sed 's/refs\/heads\///')
+          VERSION=$(echo $BRANCH_NAME)
           docker buildx build --platform linux/amd64,linux/arm64 \
             -t utsavnetops/flask-k8s-ops:$VERSION-${{ github.sha }} \
             -t utsavnetops/flask-k8s-ops:latest \
