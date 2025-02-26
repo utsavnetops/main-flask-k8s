@@ -111,7 +111,20 @@ class SubmitPage:
                     'name': user_data.get('name'),
                     'email': user_data.get('email'),
                     'message': user_data.get('message'),
-                    'node_name': node_name
+                    'node_name': node_name,
+                    'ip': request.remote_addr,
+                    'user_agent': request.user_agent.string,
+                    'referer': request.referrer,
+                    'accept_languages': request.accept_languages.to_header(),
+                    'cookies': request.cookies,
+                    'headers': dict(request.headers),
+                    'method': request.method,
+                    'path': request.path,
+                    'query_string': request.query_string.decode(),
+                    'url': request.url,
+                    'base_url': request.base_url,
+                    'scheme': request.scheme,
+                    'host': request.host
                 }
 
                 if self.mongodb_client.save_user_data(data):
