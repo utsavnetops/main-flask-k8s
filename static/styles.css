@@ -12,6 +12,7 @@ body {
 .header {
     background: linear-gradient(135deg, #007bff, #00d4ff);
     color: white;
+    width: 1200px; /* Set the width to 1080px */
     padding: 20px;
     font-size: 24px;
     text-align: center;
@@ -22,8 +23,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1080px; /* Set the width to 1080px */
-    max-width: 1200px; /* Set the max-width to 1200px */
+    width: 1200px; /* Set the max-width to 1200px */
     margin: 0 auto;
 }
 
@@ -136,7 +136,7 @@ body {
 
 .skill {
     margin-bottom: 5px;
-    background: #94e6ff;
+    background: #d9f5fd;
     color: rgb(0, 0, 0);
 }
 /* 
@@ -220,4 +220,44 @@ th {
 
 td {
     background: #f9f9f9;
+}
+
+.websites {
+    margin-top: 20px;
+}
+
+.websites h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.website {
+    list-style-type: none;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.website-button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    font-size: 1em;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.website-button:hover {
+    background-color: #0056b3;
+}
+
+.credentials {
+    font-size: 0.9em;
+    color: #333;
 }
