@@ -276,15 +276,3 @@ td {
     word-wrap: break-word;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
-
-span {
-    position: relative;
-}
-span:active:after {
-    content:attr(title);
-    padding:5px;
-    border:1px solid #ccc;
-    top:5px;
-    right:10%;
-    background: #bada55;
-}
