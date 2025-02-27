@@ -14,19 +14,19 @@
             <p>Note: All credentials are read-only.</p>
             <ul>
                 <li class="website">
-                    <button onclick="window.open('https://grafana.utsavops.com', '_blank')">Grafana</button>
-                    <p class="credentials">Username: <strong id="usergra">readonly</strong><button onclick="copyToClipboard('usergra')">Copy</button></p>
-                    <p class="credentials">Password: <strong id="passgra">ReAd-OnLy</strong><button onclick="copyToClipboard('passgra')">Copy</button></p>
+                    <button class="btn" onclick="window.open('https://grafana.utsavops.com', '_blank')">Grafana</button>
+                    <p class="credentials">Username: <strong id="usergra">readonly </strong><button onclick="copyToClipboard('usergra')">Copy</button></p>
+                    <p class="credentials">Password: <strong id="passgra">ReAd-OnLy </strong><button onclick="copyToClipboard('passgra')">Copy</button></p>
                 </li>
                 <li class="website">
-                    <button onclick="window.open('https://argo.utsavops.com', '_blank')">Argo CD</button>
-                    <p class="credentials">Username: <strong id="userargo">argocd-viewer</strong><button onclick="copyToClipboard('userargo')">Copy</button></p>
-                    <p class="credentials">Password: <strong id="passargo">@rg0c$-v!3w3R</strong><button onclick="copyToClipboard('passargo')">Copy</button></p>
+                    <button class="btn" onclick="window.open('https://argo.utsavops.com', '_blank')">Argo CD</button>
+                    <p class="credentials">Username: <strong id="userargo">argocd-viewer </strong><button onclick="copyToClipboard('userargo')">Copy</button></p>
+                    <p class="credentials">Password: <strong id="passargo">@rg0c$-v!3w3R </strong><button onclick="copyToClipboard('passargo')">Copy</button></p>
                 </li>
                 <li class="website">
-                    <button onclick="window.open('https://board.utsavops.com/', '_blank')">Kubernetes Dashboard</button>
+                    <button class="btn" onclick="window.open('https://board.utsavops.com/', '_blank')">Kubernetes Dashboard</button>
                     <div class="token-box">
-                        <p class="credentials">Token: <strong id="boardtoken">eyJhbGciOiJSUzI1NiIsImtpZCI6IldNeGVLS0wzV1h1ZHBLU08wbUR0cEl6NXNneDhVSUtWUVN0S2hYTlFQdjQifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzQwNjM4MDgzLCJpYXQiOjE3NDA2MzQ0ODMsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwianRpIjoiOGNlYzYwZDEtNmZkZS00M2IzLWEzOGEtOTY0OTA1YjVkODMyIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJrdWJlLWRzLXZpZXdlciIsInVpZCI6IjlmNjYwYmE4LWIyZmMtNDZiYy05MGFlLTAzMjU2ZmQ0NDA0ZCJ9fSwibmJmIjoxNzQwNjM0NDgzLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06a3ViZS1kcy12aWV3ZXIifQ.TTyAXIoKoz4dCiJM8Q01Rd4y50W9K_sP5gwXG6UarI-7Sxl6whniS31JExTYeShnpqPZWxoC4ucq1vnllj4y3CGc9rfceanPZ54wkF39dQpspuRPLYrWjh5LtYcwC0An4Lw44_PxwhLlno4ZTfoj5_fnEWmtrc9BNXTW8DbJljxGXxIRMNBrX5e-_862TLulJx8KvMhD8pEOQ1zE6JWW1e1cwfGTj8Pn7YnwD0nXHRJM4PMdO-gaJ6zhCavwq4RTw_G3M2_dmYDrYp7Y7ImVzBAohH2xnu2QNEbssJci23kvtxVl5zG-S7TvF8RaCVF3XMO2F5FGXrHYWD_lbxKuag</strong><button onclick="copyToClipboard('boardtoken')">Copy</button></p>
+                        <p class="credentials">Token: <strong id="boardtoken">eyJhbGciOiJSUzI1NiIsImtpZCI6IldNeGVLS0wzV1h1ZHBLU08wbUR0cEl6NXNneDhVSUtWUVN0S2hYTlFQdjQifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzQwNjM4MDgzLCJpYXQiOjE3NDA2MzQ0ODMsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwianRpIjoiOGNlYzYwZDEtNmZkZS00M2IzLWEzOGEtOTY0OTA1YjVkODMyIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJrdWJlLWRzLXZpZXdlciIsInVpZCI6IjlmNjYwYmE4LWIyZmMtNDZiYy05MGFlLTAzMjU2ZmQ0NDA0ZCJ9fSwibmJmIjoxNzQwNjM0NDgzLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06a3ViZS1kcy12aWV3ZXIifQ.TTyAXIoKoz4dCiJM8Q01Rd4y50W9K_sP5gwXG6UarI-7Sxl6whniS31JExTYeShnpqPZWxoC4ucq1vnllj4y3CGc9rfceanPZ54wkF39dQpspuRPLYrWjh5LtYcwC0An4Lw44_PxwhLlno4ZTfoj5_fnEWmtrc9BNXTW8DbJljxGXxIRMNBrX5e-_862TLulJx8KvMhD8pEOQ1zE6JWW1e1cwfGTj8Pn7YnwD0nXHRJM4PMdO-gaJ6zhCavwq4RTw_G3M2_dmYDrYp7Y7ImVzBAohH2xnu2QNEbssJci23kvtxVl5zG-S7TvF8RaCVF3XMO2F5FGXrHYWD_lbxKuag</strong></br><button onclick="copyToClipboard('boardtoken')">Copy</button></p>
                     </div>
                 </li>
             </ul>
