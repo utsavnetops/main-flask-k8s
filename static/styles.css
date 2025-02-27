@@ -12,10 +12,10 @@ body {
 .header {
     background: linear-gradient(135deg, #007bff, #00d4ff);
     color: white;
-    width: 1200px; /* Set the width to 1080px */
     padding: 20px;
     font-size: 24px;
-    text-align: center;
+    width: 1200px;
+    margin: 0 auto; /* Center the header horizontally */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -222,6 +222,7 @@ td {
     background: #f9f9f9;
 }
 
+
 .websites {
     margin-top: 20px;
 }
@@ -229,28 +230,31 @@ td {
 .websites h2 {
     font-size: 1.5em;
     margin-bottom: 10px;
+    color: #007bff;
 }
 
 .website {
     list-style-type: none;
     margin-bottom: 15px;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .website-button {
     display: inline-block;
-    padding: 10px 15px;
+    padding: 10px 20px;
     margin-bottom: 5px;
     font-size: 1em;
     color: white;
     background-color: #007bff;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
     cursor: pointer;
     text-decoration: none;
+    transition: background-color 0.3s ease-in-out;
 }
 
 .website-button:hover {
@@ -258,6 +262,17 @@ td {
 }
 
 .credentials {
-    font-size: 0.9em;
+    font-size: 1em;
     color: #333;
+    margin: 5px 0;
+}
+
+.token-box {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    margin-top: 10px;
+    word-wrap: break-word;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
