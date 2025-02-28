@@ -4,10 +4,42 @@
     <div class="section">
         <h1>About Me</h1>
         <p class="highlight">
-            I am a highly motivated and results-oriented IT professional with a strong background in network engineering, cloud computing, and automation.
+            Possessing a proven track record, I am a highly motivated IT professional with extensive experience in Kubernetes, GitOps/DevOps, DSA(Python/C++),network engineering, cloud computing(AWS/Azure), and Automation.
         </p>
         <p>
-            In my free time, I enjoy reading, traveling, and playing sports.
+            Podcasts, exploring new places, and getting active outdoors are my favorite ways to unwind.
         </p>
+        <div class="websites">
+            <h2>About Cluster</h2>
+            <p>Note: All credentials are read-only.</p>
+            <ul>
+                <li class="website">
+                    <button class="btn" onclick="window.open('https://grafana.utsavops.com', '_blank')">Grafana</button>
+                    <p class="credentials">Username: <strong id="usergra">readonly</strong> <button onclick="copyToClipboard('usergra')">Copy</button></p>
+                    <p class="credentials">Password: <strong id="passgra">ReAd-OnLy</strong>  <button onclick="copyToClipboard('passgra')">Copy</button></p>
+                </li>
+                <li class="website">
+                    <button class="btn" onclick="window.open('https://argo.utsavops.com', '_blank')">Argo CD</button>
+                    <p class="credentials">Username: <strong id="userargo">argocd-viewer</strong> <button onclick="copyToClipboard('userargo')">Copy</button></p>
+                    <p class="credentials">Password: <strong id="passargo">@rg0c$-v!3w3R</strong> <button onclick="copyToClipboard('passargo')">Copy</button></p>
+                </li>
+                <li class="website">
+                    <button class="btn" onclick="window.open('https://board.utsavops.com/', '_blank')">Kubernetes Dashboard</button>
+                    <div class="token-box">
+                        <p class="credentials">Token: <strong id="boardtoken">eyJhbGciOiJSUzI1NiIsImtpZCI6IldNeGVLS0wzV1h1ZHBLU08wbUR0cEl6NXNneDhVSUtWUVN0S2hYTlFQdjQifQ.eyJhdWQiOlsiaHR0cHM6Ly9rdWJlcm5ldGVzLmRlZmF1bHQuc3ZjLmNsdXN0ZXIubG9jYWwiXSwiZXhwIjoxNzQwNjYwMzgxLCJpYXQiOjE3NDA2NTY3ODEsImlzcyI6Imh0dHBzOi8va3ViZXJuZXRlcy5kZWZhdWx0LnN2Yy5jbHVzdGVyLmxvY2FsIiwianRpIjoiZjA0ODQ2MGQtN2EwNS00YjVkLTk3YmEtNmJlOGJiYzBhZDdhIiwia3ViZXJuZXRlcy5pbyI6eyJuYW1lc3BhY2UiOiJrdWJlLXN5c3RlbSIsInNlcnZpY2VhY2NvdW50Ijp7Im5hbWUiOiJrdWJlLWRzLXZpZXdlciIsInVpZCI6IjlmNjYwYmE4LWIyZmMtNDZiYy05MGFlLTAzMjU2ZmQ0NDA0ZCJ9fSwibmJmIjoxNzQwNjU2NzgxLCJzdWIiOiJzeXN0ZW06c2VydmljZWFjY291bnQ6a3ViZS1zeXN0ZW06a3ViZS1kcy12aWV3ZXIifQ.pN4AbwSqlu6Sj0Le7oMj5YvvWVwqE2iLTQSOJHNLhuPlSrKiv3UNTFguwrcWvujcmBfgvyfoeNILBIW3sBf8Yjx_QNmrMfP6iWRl8CPOwqBpeU8E-e3oOEHDbSr4_qrEGzqvbY_dV_xl9WR8rIVb-MUiutooyCUMDtBoNAQOMWhK6Nxfj-irWIxUnKZ8xAKbMmaiVz9Q8dGxQxyS45JTxIW0Y8esiOLnA_c5oysZBml5kT8T2wRFCRqY_gXRRDEbQuM_3E-2kCN14mjM7Zc0bZh0sKH6uhtqMweLzaf9IQD9tOaGHEH2Zx2QjViFJBMTkPv5RSFBniPUBfbasRWtoQ</strong></br><button onclick="copyToClipboard('boardtoken')">Copy</button></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
+    <script>
+        function copyToClipboard(elementId) {
+            var copyText = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(copyText).then(function() {
+                console.log('Copied to clipboard');
+            }, function(err) {
+                alert('Failed to copy text: ', err);
+            });
+        }
+    </script>
 {% endblock %}
