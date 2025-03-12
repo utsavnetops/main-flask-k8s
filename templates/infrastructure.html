@@ -4,7 +4,76 @@
     <div class="section">
         <h1>Infrastructure Overview</h1>
         <p>
-            Will be updated shortly
+            This diagram represents the current Kubernetes infrastructure.
         </p>
+        <div class="mermaid">
+            graph LR
+            A[flask-web-app-dev-flask-k8s-app] --> B(Pod);
+            C[flask-web-app-prod-flask-k8s-app] --> D(Pod);
+            E[flask-web-app-staging-flask-k8s-app] --> F(Pod);
+            G[flask-web-app-dev-flask-k8s-service] --> H(Service);
+            I[flask-web-app-prod-flask-k8s-service] --> J(Service);
+            K[flask-web-app-staging-flask-k8s-service] --> L(Service);
+            M[flask-web-app-dev-flask-k8s-app] --> N(Deployment);
+            O[flask-web-app-prod-flask-k8s-app] --> P(Deployment);
+            Q[flask-web-app-staging-flask-k8s-app] --> R(Deployment);
+            S[flask-web-app-dev-flask-k8s-app-55ff95d89c] --> T(ReplicaSet);
+            U[flask-web-app-prod-flask-k8s-app-7867b4b579] --> V(ReplicaSet);
+            W[flask-web-app-staging-flask-k8s-app-6dddfc75c5] --> X(ReplicaSet);
+        
+            B -- 1 Pod --> device003-thinkcentre-m710q;
+            D -- 2 Pods --> device003-thinkcentre-m710q;
+            F -- 1 Pod --> device003-thinkcentre-m710q;
+        
+            H -- NodePort: 80:30003/TCP --> device003-thinkcentre-m710q;
+            J -- NodePort: 80:30001/TCP --> device003-thinkcentre-m710q;
+            L -- NodePort: 80:30002/TCP --> device003-thinkcentre-m710q;
+        
+            N -- Image: utsavnetops/flask-k8s-ops:develop-v0.0.19-dev-fc93ad97c66aa00d4c38d77dfc5097a7aaa7c263 --> T;
+            P -- Image: utsavnetops/flask-k8s-ops:v0.0.4-197056c46373b2d4bda6b92aa397a0389fb1457b --> V;
+            R -- Image: utsavnetops/flask-k8s-ops:release-v0.0.6-staging-05656286c56fbf16d227d3819bd2072ad197b469 --> X;
+        
+            subgraph Development
+                A
+                G
+                M
+                T
+                B
+            end
+        
+            subgraph Production
+                C
+                I
+                O
+                V
+                D
+            end
+        
+            subgraph Staging
+                E
+                K
+                Q
+                X
+                F
+            end
+        
+            style B fill:#f9f,stroke:#333,stroke-width:2px
+            style D fill:#f9f,stroke:#333,stroke-width:2px
+            style F fill:#f9f,stroke:#333,stroke-width:2px
+            style H fill:#ccf,stroke:#333,stroke-width:2px
+            style J fill:#ccf,stroke:#333,stroke-width:2px
+            style L fill:#ccf,stroke:#333,stroke-width:2px
+            style N fill:#cfc,stroke:#333,stroke-width:2px
+            style P fill:#cfc,stroke:#333,stroke-width:2px
+            style R fill:#cfc,stroke:#333,stroke-width:2px
+            style T fill:#ffc,stroke:#333,stroke-width:2px
+            style V fill:#ffc,stroke:#333,stroke-width:2px
+            style X fill:#ffc,stroke:#333,stroke-width:2px
+        </div>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.5.0/dist/mermaid.min.js"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
 {% endblock %}
