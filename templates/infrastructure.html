@@ -21,17 +21,17 @@
             U[flask-web-app-prod-flask-k8s-app-7867b4b579] --> V(ReplicaSet);
             W[flask-web-app-staging-flask-k8s-app-6dddfc75c5] --> X(ReplicaSet);
         
-            B -- 1 Pod --> device003-thinkcentre-m710q;
-            D -- 2 Pods --> device003-thinkcentre-m710q;
-            F -- 1 Pod --> device003-thinkcentre-m710q;
+            B -- 1 Pod --> device00x-thinkcentre-m710q;
+            D -- 2 Pods --> device00x-thinkcentre-m710q;
+            F -- 1 Pod --> device00x-thinkcentre-m710q;
         
-            H -- NodePort: 80:30003/TCP --> device003-thinkcentre-m710q;
-            J -- NodePort: 80:30001/TCP --> device003-thinkcentre-m710q;
-            L -- NodePort: 80:30002/TCP --> device003-thinkcentre-m710q;
+            H -- NodePort: 80:xxxx3/TCP --> device00x-thinkcentre-m710q;
+            J -- NodePort: 80:xxxx1/TCP --> device00x-thinkcentre-m710q;
+            L -- NodePort: 80:xxxx2/TCP --> device00x-thinkcentre-m710q;
         
-            N -- Image: utsavnetops/flask-k8s-ops:develop-v0.0.19-dev-fc93ad97c66aa00d4c38d77dfc5097a7aaa7c263 --> T;
-            P -- Image: utsavnetops/flask-k8s-ops:v0.0.4-197056c46373b2d4bda6b92aa397a0389fb1457b --> V;
-            R -- Image: utsavnetops/flask-k8s-ops:release-v0.0.6-staging-05656286c56fbf16d227d3819bd2072ad197b469 --> X;
+            N -- Image: utsavnetops/flask-k8s-ops:develop-vx.x.x-dev-githash --> T;
+            P -- Image: utsavnetops/flask-k8s-ops:vx.x.x-githash --> V;
+            R -- Image: utsavnetops/flask-k8s-ops:release-vx.x.x-staging-githash --> X;
         
             subgraph Development
                 A
